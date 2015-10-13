@@ -25,7 +25,7 @@ build_dir = ARGV[0]
 
 puts "Downloading Logstash."
 
-system 'echo "Hello from Fabio in CF" | nc cap-sg-prd-2.integration.ibmcloud.com 15003'
+system "logstash-install.sh"
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
