@@ -23,9 +23,9 @@ require 'java_buildpack/buildpack'
 
 build_dir = ARGV[0]
 
-puts "Downloading Logstash."
 
-system "logstash-install.sh"
+my_dir = File.expand_path(File.dirname(__FILE__))
+system "#{my_dir}/logstash-install.sh"
 
 JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exception %s') do |buildpack|
   buildpack.compile
