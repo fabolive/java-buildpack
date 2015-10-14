@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p /opt
-pushd /opt
+mkdir -p app/opt
+pushd app/opt
   echo "Downloading and installing Logstash."
   wget -nv https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz
   tar xzf logstash-1.4.2.tar.gz
