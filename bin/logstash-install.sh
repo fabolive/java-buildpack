@@ -8,4 +8,3 @@ pushd app/opt
   mv logstash-1.4.2 logstash
   rm logstash-1.4.2.tar.gz
 popd
-ls -l
