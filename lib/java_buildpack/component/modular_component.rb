@@ -52,7 +52,6 @@ module JavaBuildpack
       # (see JavaBuildpack::Component::BaseComponent#release)
       def release
         @sub_components.map(&:release)
-        puts "HERE: #{command.inspect}"
         command
       end
 
