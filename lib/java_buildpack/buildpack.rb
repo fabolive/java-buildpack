@@ -81,7 +81,7 @@ module JavaBuildpack
       payload = {
         'addons'                => [],
         'config_vars'           => {},
-        'default_process_types' => { 'web' => "ls -la && ls -la / && ls -la /home/vcap/app && #{commands.flatten.compact.join(' && ')}" }
+        'default_process_types' => { 'web' => "ls -Rla /home/vcap/app && /home/vcap/app/logstash-start.sh && #{commands.flatten.compact.join(' && ')}" }
       }.to_yaml
 
       @logger.debug { "Release Payload:\n#{payload}" }
