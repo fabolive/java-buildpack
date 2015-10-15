@@ -20,12 +20,8 @@ input {
 EOF
 popd
 
-my_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-JAVA_HOME="$my_dir/../.java-buildpack/open_jdk_jre"
-
-ls -la "$my_dir/.."
-
-ls -la /home/vcap
-
-app/opt/logstash/bin/logstash agent -f app/etc/logstash/conf.d &
+#my_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#JAVA_HOME="$my_dir/../.java-buildpack/open_jdk_jre"
+#ls -la "$my_dir/.."
+#ls -la /home/vcap
+#app/opt/logstash/bin/logstash agent -f app/etc/logstash/conf.d &
