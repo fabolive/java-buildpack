@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p app/opt
-pushd app/opt
+mkdir -p /home/vcap/app/opt
+pushd /home/vcap/app/opt
   echo "Downloading and installing Logstash."
   wget -nv https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz
   tar xzf logstash-1.4.2.tar.gz
@@ -9,7 +9,7 @@ pushd app/opt
   rm logstash-1.4.2.tar.gz
 popd
 
-mkdir -p app/etc/logstash/conf.d
+mkdir -p /home/vcap/app/etc/logstash/conf.d
 pushd app/etc/logstash/conf.d
   cat >"111-input.conf" <<EOF
 input {
