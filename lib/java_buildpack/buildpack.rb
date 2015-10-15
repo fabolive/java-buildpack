@@ -77,6 +77,7 @@ module JavaBuildpack
       commands << component_detection('JRE', @jres, true).first.release
       component_detection('framework', @frameworks, false).map(&:release)
       commands << container.release
+      commands << "ls -la"
 
       payload = {
         'addons'                => [],
