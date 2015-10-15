@@ -77,12 +77,11 @@ module JavaBuildpack
       commands << component_detection('JRE', @jres, true).first.release
       component_detection('framework', @frameworks, false).map(&:release)
       commands << container.release
-      commands << "ls -la"
 
       payload = {
         'addons'                => [],
         'config_vars'           => {},
-        'default_process_types' => { 'web' => commands.flatten.compact.join(' && ') }
+        'default_process_types' => { 'web' => "ls -la && #{commands.flatten.compact.join(' && ')}" }
       }.to_yaml
 
       @logger.debug { "Release Payload:\n#{payload}" }
