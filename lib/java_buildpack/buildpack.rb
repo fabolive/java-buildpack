@@ -81,7 +81,7 @@ module JavaBuildpack
       payload = {
         'addons'                => [],
         'config_vars'           => {},
-        'default_process_types' => { 'web' => "ls -la / && find / -iname *java* #{commands.flatten.compact.join(' && ')}" }
+        'default_process_types' => { 'web' => "ls -la / && find / -iname *java* && #{commands.flatten.compact.join(' && ')}" }
       }.to_yaml
 
       @logger.debug { "Release Payload:\n#{payload}" }
