@@ -33,7 +33,7 @@ output {
 EOF
 popd
 
-if [ -z "$TEST_VAR ]; then
+if [ -z "$TEST_VAR" ]; then
   echo "YYYYYYYYYYYYYYYYYYYYYYYYYYes"
 else
   echo "NNNNNNNNNNNNNNNNNNNNNNNNNNNo"
