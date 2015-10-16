@@ -32,3 +32,9 @@ output {
 }
 EOF
 popd
+
+if [ -z "$TEST_VAR ]; then
+  echo "YYYYYYYYYYYYYYYYYYYYYYYYYYes"
+else
+  echo "NNNNNNNNNNNNNNNNNNNNNNNNNNNo"
+fi
