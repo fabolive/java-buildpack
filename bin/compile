@@ -27,6 +27,5 @@ JavaBuildpack::Buildpack.with_buildpack(build_dir, 'Compile failed with exceptio
   buildpack.compile
 end
 
-puts "Build directory: #{build_dir}"
 my_dir = File.expand_path(File.dirname(__FILE__))
 system "#{my_dir}/logstash-install.sh #{build_dir}"

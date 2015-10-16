@@ -14,4 +14,21 @@ pushd $build_dir
   rm logstash-1.4.2.tar.gz
 popd
 
-ls -lR $build_dir
+mkdir -p $build_dir/etc/logstash/conf.d
+pushd $build_dir/etc/logstash/conf.d
+  cat >"111-input.conf" <<EOF
+input {
+  file {
+    path => '/var/log/messages'  
+  }
+}
+EOF
+
+
+  cat >"900-output.conf" <<EOF
+output {
+  stdout {
+  }
+}
+EOF
+popd
