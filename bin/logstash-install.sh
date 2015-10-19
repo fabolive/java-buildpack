@@ -14,6 +14,8 @@ pushd $build_dir
   rm logstash-1.4.2.tar.gz
 popd
 
+ls -l
+
 mkdir -p $build_dir/etc/logstash/conf.d
 pushd $build_dir/etc/logstash/conf.d
   cat >"111-input.conf" <<EOF
