@@ -13,7 +13,10 @@ pushd $build_dir
   pwd
   
   echo "Copying customized server.xml file to Tomcat distribution"
-  cp $my_dir/../custom-server.xml .java-buildpack/tomcat/conf/server.xml 
+  ls -l .java-buildpack/tomcat/conf/
+  cat .java-buildpack/tomcat/conf/server.xml
+  
+#  cp $my_dir/../custom-server.xml .java-buildpack/tomcat/conf/server.xml 
 popd
 
 mkdir -p $build_dir/etc/logstash/conf.d
