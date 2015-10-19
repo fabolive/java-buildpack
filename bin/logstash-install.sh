@@ -24,7 +24,7 @@ pushd $build_dir/etc/logstash/conf.d
   cat >"111-input.conf" <<EOF
 input {
   file {
-    path => '/var/log/messages'  
+    path => '/home/vcap/app/.java-buildpack/tomcat/logs'  
   }
 }
 EOF
