@@ -4,8 +4,6 @@
 build_dir=$1
 my_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cp $my_dir/logstash*.sh $build_dir
-
 pushd $build_dir
   echo "Downloading and installing Logstash."
   wget -nv https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz
@@ -13,11 +11,10 @@ pushd $build_dir
   mv logstash-1.4.2 logstash
   rm logstash-1.4.2.tar.gz
   pwd
-  ls -la
+  
+  echo "Copying customized server.xml file to Tomcat distribution"
+  cp $my_dir/../custom-server.xml .java-buildpack/tomcat/conf/server.xml 
 popd
-
-pwd
-ls -l
 
 mkdir -p $build_dir/etc/logstash/conf.d
 pushd $build_dir/etc/logstash/conf.d
