@@ -12,8 +12,8 @@ pushd $build_dir
   rm logstash-1.4.2.tar.gz
   pwd
   
-  echo "Copying customized server.xml file to Tomcat distribution"
-  cp $my_dir/../custom-server.xml .java-buildpack/tomcat/conf/server.xml 
+  #echo "Copying customized server.xml file to Tomcat distribution"
+  #cp $my_dir/../custom-server.xml .java-buildpack/tomcat/conf/server.xml 
 popd
 
 mkdir -p $build_dir/etc/logstash/conf.d
