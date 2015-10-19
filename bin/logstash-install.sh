@@ -12,8 +12,11 @@ pushd $build_dir
   tar xzf logstash-1.4.2.tar.gz
   mv logstash-1.4.2 logstash
   rm logstash-1.4.2.tar.gz
+  pwd
+  ls -la
 popd
 
+pwd
 ls -l
 
 mkdir -p $build_dir/etc/logstash/conf.d
@@ -34,9 +37,3 @@ output {
 }
 EOF
 popd
-
-if [ -z "$TEST_VAR" ]; then
-  echo "YYYYYYYYYYYYYYYYYYYYYYYYYYes"
-else
-  echo "NNNNNNNNNNNNNNNNNNNNNNNNNNNo"
-fi
