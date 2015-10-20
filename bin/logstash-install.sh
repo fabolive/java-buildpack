@@ -17,13 +17,13 @@ pushd $build_dir
   pwd
   
   echo "Copying customized server.xml file to Tomcat distribution"
-  cp $my_dir/logstash-related-config/custom-server.xml .java-buildpack/tomcat/conf/server.xml 
+  cp $my_dir/../logstash-related-config/custom-server.xml .java-buildpack/tomcat/conf/server.xml 
 popd
 
 echo "Generating Logstash configuration"
 mkdir -p $LOGSTASH_CONF_DIR
 cp $my_dir/../logstash-related-config/logstash-tomcat.template $LOGSTASH_CONF_DIR/logstash-tomcat.conf
-sed -i s"TOMCAT_SERVER_DIR/\/home\/vcap\/app\/.java-buildpack\/tomcat/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
+sed -i s"TOMCAT_SERVER_DIR/\/home\/vcap\/app\/\.java-buildpack\/tomcat/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
 sed -i s"CA_TAG/$CA_TAG/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
 sed -i s"ES_HOST/$ES_HOST/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
 sed -i s"ES_PORT/$ES_PORT/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
