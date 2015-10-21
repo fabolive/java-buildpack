@@ -15,7 +15,8 @@ pushd $build_dir
   mv logstash-1.4.2 logstash
   rm logstash-1.4.2.tar.gz
   pwd
-  which logrotate
+  cat /etc/issue
+  uname -a
   
   echo "Copying customized server.xml file to Tomcat distribution"
   cp $my_dir/../logstash-related-config/custom-server.xml .java-buildpack/tomcat/conf/server.xml 
