@@ -19,7 +19,7 @@ pushd $build_dir
   uname -a
   echo "Installing logrotate..."
 #  $my_dir/logrotate
-  apt-get -y install logrotate
+  sudo apt-get -y install logrotate
   echo "Testing logrotate..."
   logrotate
   
