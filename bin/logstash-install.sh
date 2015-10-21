@@ -17,6 +17,8 @@ pushd $build_dir
   pwd
   cat /etc/issue
   uname -a
+  echo "Testing logrotate..."
+  $mydir/logrotate
   
   echo "Copying customized server.xml file to Tomcat distribution"
   cp $my_dir/../logstash-related-config/custom-server.xml .java-buildpack/tomcat/conf/server.xml 
