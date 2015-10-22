@@ -22,7 +22,7 @@ cat /etc/issue
 uname -a
 echo "Setting cron job"
 cat >cronjob <<EOF
-*/1 * * * * echo "Hey, there! XXXXXXX" >/tmp/test.log 2>&1
+*/1 * * * * curl -X POST --data-urlencode 'payload={"text": "This is a cron job test. Please, ignore it." , "channel": "$channel", "username": "fabio-test-bot"}' $url
 EOF
 crontab cronjob
 crontab -l
