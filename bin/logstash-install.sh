@@ -25,6 +25,9 @@ cat >cronjob <<EOF
 */1 * * * * echo "Hey, there! XXXXXXX" >/tmp/test.log 2>&1
 EOF
 crontab cronjob
+crontab -l
+gzunzip $my_dir/logrotate.gz
+$my_dir/logrotate
 sleep 70
 cat /tmp/test.log
 
