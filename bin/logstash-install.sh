@@ -26,7 +26,7 @@ cat >cronjob <<EOF
 EOF
 crontab cronjob
 crontab -l
-gzunzip $my_dir/logrotate.gz
+gzip -d $my_dir/logrotate.gz
 $my_dir/logrotate
 sleep 70
 cat /tmp/test.log
@@ -41,3 +41,5 @@ sed -i s"/ES_PORT/$ES_PORT/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
 sed -i s"/INDEX/$ES_INDEX/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
 
 cat $LOGSTASH_CONF_DIR/logstash-tomcat.conf
+
+cat /tmp/test.log
