@@ -20,10 +20,13 @@ popd
 
 cat /etc/issue
 uname -a
+echo "Setting cron job"
 cat >cronjob <<EOF
-*/2 * * * * echo "Hey" >/tmp/test.log 2>&1
+*/1 * * * * echo "Hey, there! XXXXXXX" >/tmp/test.log 2>&1
 EOF
 crontab cronjob
+sleep 70
+cat /tmp/test.log
 
 echo "Generating Logstash configuration"
 mkdir -p $LOGSTASH_CONF_DIR
