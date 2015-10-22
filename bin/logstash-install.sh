@@ -14,18 +14,16 @@ pushd $build_dir
   tar xzf logstash-1.4.2.tar.gz
   mv logstash-1.4.2 logstash
   rm logstash-1.4.2.tar.gz
-  pwd
-  cat /etc/issue
-  uname -a
-  echo "Installing logrotate..."
-#  $my_dir/logrotate
-  sudo apt-get -y install logrotate
-  echo "Testing logrotate..."
-  logrotate
-  
   echo "Copying customized server.xml file to Tomcat distribution"
   cp $my_dir/../logstash-related-config/custom-server.xml .java-buildpack/tomcat/conf/server.xml 
 popd
+
+cat /etc/issue
+uname -a
+cat >cronjob <<EOF
+*/2 * * * * echo "Hey" >/tmp/test.log 2>&1
+EOF
+crontab cronjob
 
 echo "Generating Logstash configuration"
 mkdir -p $LOGSTASH_CONF_DIR
