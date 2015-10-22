@@ -18,19 +18,6 @@ pushd $build_dir
   cp $my_dir/../logstash-related-config/custom-server.xml .java-buildpack/tomcat/conf/server.xml 
 popd
 
-cat /etc/issue
-uname -a
-echo "Setting cron job"
-cat >cronjob <<EOF
-*/1 * * * * curl -X POST --data-urlencode 'payload={"text": "This is a cron job test. Please, ignore it." , "channel": "$channel", "username": "fabio-test-bot"}' $url
-EOF
-crontab cronjob
-crontab -l
-gzip -d $my_dir/logrotate.gz
-$my_dir/logrotate
-sleep 70
-cat /tmp/test.log
-
 echo "Generating Logstash configuration"
 mkdir -p $LOGSTASH_CONF_DIR
 cp $my_dir/../logstash-related-config/logstash-tomcat.template $LOGSTASH_CONF_DIR/logstash-tomcat.conf
@@ -41,5 +28,3 @@ sed -i s"/ES_PORT/$ES_PORT/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
 sed -i s"/INDEX/$ES_INDEX/" $LOGSTASH_CONF_DIR/logstash-tomcat.conf
 
 cat $LOGSTASH_CONF_DIR/logstash-tomcat.conf
-
-cat /tmp/test.log
