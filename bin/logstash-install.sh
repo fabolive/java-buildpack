@@ -20,8 +20,8 @@ pushd $build_dir
   cp $my_dir/../logstash-related-config/custom-server.xml .java-buildpack/tomcat/conf/server.xml
 
   echo "Unpacking and configuring collectd"
-  tar xzf $my_dir/collectd.tgz
-  rm $my_dir/collectd.tgz
+  tar xzf $my_dir/../collectd.tgz
+  rm $my_dir/../collectd.tgz
   cp $my_dir/../logstash-related-config/collectd.template etc/collectd.conf
 popd
 
