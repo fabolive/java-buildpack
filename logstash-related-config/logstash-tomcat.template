@@ -7,13 +7,13 @@ input {
     	type => "exceptions"
     	path => ["TOMCAT_SERVER_DIR/logs/localhost.*.log"]
     }
-#    udp {
-#        port => 25826 # default collectd port
-#        buffer_size => 1452 # default buffer size for collectd
-#        codec => collectd { } # using default values for the codec
-#        type => "collectd"
-#        add_field => {"tag" => "CA_TAG"}
-#    }
+    udp {
+        port => 25826 # default collectd port
+        buffer_size => 1452 # default buffer size for collectd
+        codec => collectd { } # using default values for the codec
+        type => "collectd"
+        add_field => {"tag" => "CA_TAG"}
+    }
 }
 
 filter
